@@ -1,5 +1,6 @@
 test_names = [
-  'sample_test'
+  'arguments',
+  'tree'
 ]
 
 test_files = []

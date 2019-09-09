@@ -20,7 +20,7 @@ namespace std {
 
 namespace tests {
 
-class assertion_error : std::runtime_error {
+class assertion_error : public std::runtime_error {
 public:
     explicit assertion_error(const std::string & message) : ::std::runtime_error(message) {}
 };
@@ -51,7 +51,7 @@ struct {
     void assert_ex_with(F fun, const char * file, std::size_t line) {
         try {
             fun();
-        } catch (const E & e) {
+        } catch (const E &) {
             success++;
             return;
         } catch (...) {
