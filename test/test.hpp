@@ -22,7 +22,7 @@ namespace tests {
 
 class assertion_error : public std::runtime_error {
 public:
-    explicit assertion_error(const std::string & message) : ::std::runtime_error(message) {}
+    explicit assertion_error(const std::string & message) : std::runtime_error(message) {}
 };
 
 struct {
