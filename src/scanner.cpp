@@ -51,13 +51,13 @@ void fill_file(fill_object & object, const fs::path & next, const std::string & 
 		auto & header = *object.header;
 		tabulate(header, object.prefix, tab);
 		header
-			<< "extern std::array<std::uint8_t, " << file_sz << "> " << name << ';' << std::endl
+			<< "extern const std::array<std::uint8_t, " << file_sz << "> " << name << ';' << std::endl
 			<< std::endl;
 	}
 	if (object.source) {
 		auto & source  = *object.source;
 		tabulate(source, object.prefix, tab);
-		source << "std::array<std::uint8_t, " << file_sz << "> " << name << " {";
+		source << "const std::array<std::uint8_t, " << file_sz << "> " << name << " {";
 		std::ifstream file(next);
 		if (!file_sz) {
 			std::cerr << "file " << next << " was empty" << std::endl;

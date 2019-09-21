@@ -1,0 +1,7 @@
+## v1.1.0 - 2019-09-22
+### Added
+- README.md file
+- CHANGELOG file
+
+### Changed
+- Added const qualifier to all arrays in resource files

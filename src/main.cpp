@@ -6,7 +6,7 @@
 
 void print_usage(const std::string & program, std::ostream & output) {
 	output
-		<< "Usage: " << program << "[options] [<resource_1> [<resource_2> ...]]" << std::endl
+		<< "Usage: " << program << " [options] [<resource_1> [<resource_2> ...]]" << std::endl
 		<< R"X(
 Options:
   -path PATH      base path for resources (cdir)
