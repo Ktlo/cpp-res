@@ -1,7 +1,8 @@
 project('cpp-res', 'cpp',
   version : run_command('git', 'describe', '--abbrev=0', '--tags').stdout().strip(),
   default_options : ['warning_level=3',
-                     'cpp_std=c++17'])
+                     'cpp_std=c++17',
+                     'build.cpp_std=c++17'])
 
 group = 'com.handtruth'
 maintainer = 'ktlo <ktlo@handtruth.com>'
@@ -17,7 +18,7 @@ foreach module : modules
   module_deps += dependency(module, fallback : [module, 'dep'])
 endforeach
 
-fslib = meson.get_compiler('cpp').find_library('stdc++fs', required : false)
+fslib = meson.get_compiler('cpp', native : get_option('native_tool')).find_library('stdc++fs', required : false)
 if fslib.found()
   module_deps += fslib
 endif
