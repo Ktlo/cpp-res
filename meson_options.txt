@@ -1,1 +1,2 @@
 option('run_args', type : 'array', value : [])
+option('native_tool', type : 'boolean', value : false)

@@ -15,8 +15,8 @@ sources += configure_file(output : 'config.cpp', input : 'config.cpp.in',
   'maintainer' : maintainer,
 })
 
-lib = library(meson.project_name(), sources, dependencies: module_deps)
-exe = executable(meson.project_name(), 'main.cpp', link_with : lib, install : true, dependencies : module_deps)
+lib = library(meson.project_name(), sources, dependencies: module_deps, native : get_option('native_tool'))
+exe = executable(meson.project_name(), 'main.cpp', link_with : lib, install : get_option('native_tool') != true, dependencies : module_deps, native : get_option('native_tool'))
 run_target('run', command : [exe] + get_option('run_args'), depends : exe)
 
 test('run program headers', exe, args : [

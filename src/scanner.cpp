@@ -193,8 +193,16 @@ void place_header_prefix(std::ostream & output) {
 		<< std::endl
 		<< "#include <array>" << std::endl
 		<< "#include <cinttypes>" << std::endl
+		<< "#include <string_view>" << std::endl
 		<< std::endl;
 	place_common_prefix(output);
+	output
+		<< R"===(	template <std::size_t N>
+	std::string_view view(const std::array<std::uint8_t, N> & data) {
+		return std::string_view(reinterpret_cast<const char *>(data.data()), N);
+	}
+
+)===";
 }
 
 void place_source_prefix(std::ostream & output) {
