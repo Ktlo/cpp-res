@@ -28,7 +28,7 @@ subdir('test')
 
 cppcheck = custom_target(meson.project_name() + '_cppcheck_internal',
   output : meson.project_name() + '_cppcheck.log',
-  input : sources + test_files,
+  input : sources + test_files + files(['src'/'main.cpp']),
   command : [
     'cppcheck',
     '--enable=all',

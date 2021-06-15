@@ -25,20 +25,20 @@ test('run program headers', exe, args : [
   '-header', 'test-res.hpp',
   '-source', 'test-res.cpp',
   '-header-only'
-] + sources, is_parallel : false)
+] + sources, is_parallel : false, suite : 'unit')
 test('run program sources', exe, args : [
   '-ns', 'resources',
   '-path', meson.source_root(),
   '-header', 'test-res.hpp',
   '-source', 'test-res.cpp',
   '-source-only'
-] + sources, is_parallel : false)
+] + sources, is_parallel : false, suite : 'unit')
 test('run program both', exe, args : [
   '-ns', 'resources',
   '-path', meson.source_root(),
   '-header', 'test-res.hpp',
   '-source', 'test-res.cpp',
   '-tree'
-] + sources, is_parallel : false)
+] + sources, is_parallel : false, suite : 'unit')
 test('print help', exe, args : [ '-help' ])
-test('print version', exe, args : [ '-version' ])
+test('print version', exe, args : [ '-version' ], suite : 'unit')
